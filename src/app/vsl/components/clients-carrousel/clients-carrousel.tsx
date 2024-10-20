@@ -23,6 +23,28 @@ import Avatar16 from '../../../images/students/16.jpg'
 import Avatar17 from '../../../images/students/17.jpg'
 import Avatar18 from '../../../images/students/18.jpg'
 import Avatar19 from '../../../images/students/19.jpg'
+import Avatar20 from '../../../images/students/20.jpg'
+import Avatar21 from '../../../images/students/21.jpg'
+import Avatar22 from '../../../images/students/22.jpg'
+import Avatar23 from '../../../images/students/23.jpg'
+import Avatar24 from '../../../images/students/24.jpg'
+import Avatar25 from '../../../images/students/25.jpg'
+import Avatar26 from '../../../images/students/26.jpg'
+import Avatar27 from '../../../images/students/27.jpg'
+import Avatar28 from '../../../images/students/28.jpg'
+import Avatar29 from '../../../images/students/29.jpg'
+import Avatar30 from '../../../images/students/30.jpg'
+import Avatar31 from '../../../images/students/31.jpg'
+import Avatar32 from '../../../images/students/32.jpg'
+import Avatar33 from '../../../images/students/33.jpg'
+import Avatar34 from '../../../images/students/34.jpg'
+import Avatar35 from '../../../images/students/35.jpg'
+import Avatar36 from '../../../images/students/36.jpg'
+import Avatar37 from '../../../images/students/37.jpg'
+import Avatar38 from '../../../images/students/38.jpg'
+import Avatar39 from '../../../images/students/39.jpg'
+import Avatar40 from '../../../images/students/40.jpg'
+import Avatar41 from '../../../images/students/41.jpg'
 
 
 const avatars: StaticImageData[] = [
@@ -45,6 +67,28 @@ const avatars: StaticImageData[] = [
   Avatar17,
   Avatar18,
   Avatar19,
+  Avatar20,
+  Avatar21,
+  Avatar22,
+  Avatar23,
+  Avatar24,
+  Avatar25,
+  Avatar26,
+  Avatar27,
+  Avatar28,
+  Avatar29,
+  Avatar30,
+  Avatar31,
+  Avatar32,
+  Avatar33,
+  Avatar34,
+  Avatar35,
+  Avatar36,
+  Avatar37,
+  Avatar38,
+  Avatar39,
+  Avatar40,
+  Avatar41,
 ]
 
 export const ClientsCarrousel = () => {
@@ -60,7 +104,7 @@ export const ClientsCarrousel = () => {
       });
     };
 
-    const animation = setInterval(moveCarousel, 2);
+    const animation = setInterval(moveCarousel, 16);
 
     return () => clearInterval(animation);
   }, []);
