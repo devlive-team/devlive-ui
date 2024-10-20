@@ -71,6 +71,10 @@ const professions = [
   { name: 'QA AUTOMATIZACIÓN', value: '52d892adb1a2450fb18f541b8d0c19c8' },
   { name: 'MANAGER', value: 'a7721fa89cdc4aedb8a37d2a90d8a126' },
   { name: 'CONTADURÍA', value: '142e269befc245a09a237f084bf05ef0' },
+  { name: 'CHOFER', value: 'f2eb5dd31c1e4e6ab774c171af3aedf1' },
+  { name: 'MARKETING', value: 'd912b57702344517a86f2543c96bd747' },
+  { name: 'OTRO', value: '125ae9bdb0d5806f8878f177452a0554' },
+  { name: 'DESEMPLEADO', value: 'd143f76e57e547aea59f3f82af8b7c41' },
 ]
 
 const questions: Question[] = [
