@@ -262,16 +262,14 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, onClose })
     } else {
       const nameParam = leadFormValues.name.split(' ').reduce((total, value) => total + '%20' + value)
       
-      if (isValidApplication) {
-        const isOk = await onSaveQuestions({
-          ...questionForm,
-          pageId: notionLeadPage,
-          isValidApplication
-        })
+      const isOk = await onSaveQuestions({
+        ...questionForm,
+        pageId: notionLeadPage,
+        isValidApplication
+      })
 
-        if (isOk) {
-          window.location.href = `https://calendly.com/devlive-setting/fit-evaluation-vsl/?email=${leadFormValues.email}&name=${nameParam}`;
-        }
+      if (isValidApplication) {
+        window.location.href = `https://calendly.com/devlive-setting/fit-evaluation-vsl/?email=${leadFormValues.email}&name=${nameParam}`;
       } else {
         onNextStep()
       }
