@@ -88,7 +88,7 @@ export const SuccessCases: FC<SuccessCasesProps> = ({ onOpen }) => {
       </Heading>
       <Box display={'flex'} alignItems='center' flexDir={'column'}>
         <Box maxWidth='100vw' p={4} boxSizing='border-box'>
-          {students.map(({ thumbnail, video, name, heading, description, company }, i) => (
+          {students.map(({ thumbnail, name, heading, description, company }, i) => (
             <Box maxWidth={500} boxSizing='border-box' key={`success-case-${i}`} border='1px solid #2d3740' borderRadius={8} textAlign='center' bgImage={'linear-gradient(32deg, #0c0b0b 43%, #233e47 100%);'} mb={8}>
               <Box borderRadius={8}>
                 <Box display={'flex'} justifyContent='center'>

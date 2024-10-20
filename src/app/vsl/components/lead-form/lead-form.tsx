@@ -415,7 +415,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, onClose })
                           Tu solicitud a DEVLIVE está en proceso de revisión por parte de nuestro equipo de reclutamiento.
                           Nos pondremos en contacto contigo lo antes posible.
                           Mientras tanto, agradecemos tu interés y entusiasmo por unirte a nuestra comunidad.
-                          ¡Gracias por querer ser parte de esto!"
+                          ¡Gracias por querer ser parte de esto!
                         </Text>
                       </>
           }

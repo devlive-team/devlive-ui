@@ -10,7 +10,7 @@ import VideoThumbnail from '../../../images/vsl.jpeg'
 
 interface HeroSectionProps {
   onOpen: () => void
-  onPlayerReady: (event: YouTubeEvent<any>) => void
+  onPlayerReady: (event: YouTubeEvent) => void
 }
 
 export const HeroSection: FC<HeroSectionProps> = ({ onOpen, onPlayerReady }) => {

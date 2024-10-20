@@ -22,7 +22,7 @@ export default function VSL() {
   const playerRef = useRef<YouTubePlayer>(null)
   const currentTime = playerRef?.current?.getCurrentTime()
 
-  const onPlayerReady = useCallback((event: YouTubeEvent<any>) => {
+  const onPlayerReady = useCallback((event: YouTubeEvent) => {
     playerRef.current = event.target
   }, [])
 
