@@ -262,7 +262,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, onClose })
     } else {
       const nameParam = leadFormValues.name.split(' ').reduce((total, value) => total + '%20' + value)
       
-      const isOk = await onSaveQuestions({
+      await onSaveQuestions({
         ...questionForm,
         pageId: notionLeadPage,
         isValidApplication
