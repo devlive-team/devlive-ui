@@ -182,7 +182,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, onClose })
   const [answerIndex, setAnswerIndex] = useState(-1)
   const [notionLeadPage, setNotionLeadPage] = useState('')
 
-  const currentUrl = typeof window !== 'undefined' ? window?.location?.href : ''
+  const currentUrl = typeof window !== 'undefined' ? window?.location?.search : ''
   const queryParams = new URLSearchParams(currentUrl);
   const ad = queryParams.get('ad')
   const source = queryParams.get('source')
