@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useCallback, useState } from 'react'
 
 import Image from 'next/image'
 
@@ -14,11 +14,13 @@ import WindRiverIcon from '../../../images/success-cases/windriver-icon.webp'
 import RocCapitalBanner from '../../../images/success-cases/roccapital-banner.jpg'
 import RocCapitalIcon from '../../../images/success-cases/roccapital-icon.webp'
 
+// badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479
+
 const students = [
   {
     name: 'Iván Cortez',
     thumbnail: Ivan.src,
-    video: null,
+    video: 'https://player.vimeo.com/video/1021923975',
     heading: {
       text1: 'PASÓ DE SALIRSE DE LA UNIVERSIDAD A ESTAR GANANDO ',
       underlined: '+$2,000 USD/MES',
@@ -36,7 +38,7 @@ const students = [
   {
     name: 'Isaac Touma',
     thumbnail: Isaac.src,
-    video: null,
+    video: 'https://player.vimeo.com/video/1021923213',
     heading: {
       text1: 'PRIMER TRABAJO COMO JUNIOR DE',
       underlined: '+$3,000 USD/MES',
@@ -54,7 +56,7 @@ const students = [
   {
     name: 'Alvaro Delgado',
     thumbnail: Alvaro.src,
-    video: null,
+    video: 'https://player.vimeo.com/video/1021593602',
     heading: {
       text1: 'COLOCACIÓN POR ',
       underlined: '+$5,000 USD/MES ',
@@ -76,6 +78,16 @@ interface SuccessCasesProps {
 }
 
 export const SuccessCases: FC<SuccessCasesProps> = ({ onOpen }) => {
+  const [showVideo, setShowVideo] = useState<boolean[]>(Array(students.length).fill(false))
+
+  const onShowVideo = useCallback((i: number) => () => {
+    setShowVideo((showVideo) => {
+      const newShowVideo = [...showVideo]
+      newShowVideo[i] = true
+      return newShowVideo
+    })
+  }, [setShowVideo])
+
   return (
     <Box w='100%' bg='#111' p={4} textAlign={'center'}>
       <Text textAlign={'center'} display={'inline-block'} mb={4} mt={2} color='white' p='8px 32px' border='1px solid #2d3740' borderRadius={8} bg="linear-gradient(-45deg,#272a2c 0%,#050505 100%)">
@@ -88,11 +100,16 @@ export const SuccessCases: FC<SuccessCasesProps> = ({ onOpen }) => {
       </Heading>
       <Box display={'flex'} alignItems='center' flexDir={'column'}>
         <Box maxWidth='100vw' p={4} boxSizing='border-box'>
-          {students.map(({ thumbnail, name, heading, description, company }, i) => (
+          {students.map(({ thumbnail, video, name, heading, description, company }, i) => (
             <Box maxWidth={500} boxSizing='border-box' key={`success-case-${i}`} border='1px solid #2d3740' borderRadius={8} textAlign='center' bgImage={'linear-gradient(32deg, #0c0b0b 43%, #233e47 100%);'} mb={8}>
               <Box borderRadius={8}>
-                <Box display={'flex'} justifyContent='center'>
-                  <Img alt={`success-case-${i}`} src={thumbnail} borderTopRadius={8} />
+                <Box display={'flex'} justifyContent='center' >
+                  {
+                    showVideo[i] 
+                    ? 
+                      <iframe style={{ borderTopRightRadius: 8, borderTopLeftRadius: 8 }} width={500} height={280} src={video + '?title=0&amp;byline=0&amp;portrait=0&amp;'} allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Álvaro Delgado"></iframe>
+                    : <Img alt={`success-case-${i}`} src={thumbnail} borderTopRadius={8} onClick={onShowVideo(i)} />
+                  }
                 </Box>
                 <Box bgImage={`linear-gradient(180deg, #0c0b0b 0%, #F2295B00 0%)`} p={4}>
                   <Heading as='h5' size='lg' color='#c7c7c7'>{name}</Heading>
