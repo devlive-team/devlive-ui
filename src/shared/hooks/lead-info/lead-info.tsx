@@ -1,4 +1,4 @@
-import { useCallback } from "react"
+import { useCallback, useState } from "react"
 
 interface LeadInfo {
   ad?: string | null
@@ -28,7 +28,11 @@ const getFormattedDate = () => {
 }
 
 export const useLeadInfo = () => {
+  const [isLoading, setIsLoading] = useState(false)
+
   const onSaveLead = useCallback(async ({ ad, source, name, email, phone, avatar, videoWatchTime = 0 }: LeadInfo) => {
+    setIsLoading(true)
+
     const data = {
       AVATAR: avatar,
       NAME: name,
@@ -52,6 +56,8 @@ export const useLeadInfo = () => {
         body: JSON.stringify(data)
       })
 
+      setIsLoading(false)
+
       if (response.body && response?.ok) {
         const responseBody = await response.body.getReader().read()
         const responseText = new TextDecoder().decode(responseBody.value)
@@ -62,8 +68,9 @@ export const useLeadInfo = () => {
       return response
     } catch(error) {
       console.log(error)
+      setIsLoading(false)
     }
-  }, [])
+}, [setIsLoading])
 
-  return { onSaveLead }
+  return { isLoading, onSaveLead }
 }

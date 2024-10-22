@@ -1,4 +1,4 @@
-import { useCallback } from "react"
+import { useCallback, useState } from "react"
 
 interface LeadQuestions {
   pageId: string;
@@ -14,8 +14,11 @@ interface LeadQuestions {
 }
 
 export const useLeadQuestions = () => {
+  const [isLoading, setIsLoading] = useState(false)
   
   const onSaveQuestions = useCallback(async (questions: LeadQuestions) => {
+    setIsLoading(true)
+
     const data = {
       PAGE_ID: questions.pageId,
       JOB: questions.job,
@@ -39,12 +42,14 @@ export const useLeadQuestions = () => {
         mode: 'cors',
         body: JSON.stringify(data)
       })
+      setIsLoading(false)
 
       return response?.ok
     } catch(error) {
+      setIsLoading(false)
       console.log(error)
     }
-  }, [])
+  }, [setIsLoading])
 
-  return { onSaveQuestions }
+  return { isLoading, onSaveQuestions }
 }

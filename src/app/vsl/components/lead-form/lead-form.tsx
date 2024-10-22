@@ -188,7 +188,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, onClose })
   const source = queryParams.get('source')
 
   const { onSaveLead } = useLeadInfo()
-  const { onSaveQuestions } = useLeadQuestions()
+  const { isLoading, onSaveQuestions } = useLeadQuestions()
 
   const [questionForm, setQuestionForm] = useState<QuestionFormState>({
     english: '',
@@ -442,12 +442,14 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, onClose })
                 onNextQuestion
             }
             disabled={
-              (isLeadFormStep && leadFormSubmitCount > 0 && !!leadFormErrors.name && !!leadFormErrors.email) ||
+              isLoading ||
+              ((isLeadFormStep && leadFormSubmitCount > 0 && !!leadFormErrors.name && !!leadFormErrors.email) ||
               (isContactFormStep && contactFormSubmitCount > 0 && !!contactFormErrors.phone) ||
-              (isQuestionaryFormStep && !answer.length)
+              (isQuestionaryFormStep && !answer.length))
             }
             _hover={{ backgroundColor: '#479ea5' }}
             _active={{ backgroundColor: '#479ea5' }}
+            isLoading={isLoading}
           >
             {isQuestionaryStep
               ? "COMPLETAR PREGUNTAS"
