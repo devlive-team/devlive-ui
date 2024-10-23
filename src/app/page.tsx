@@ -6,6 +6,8 @@ import { Box } from '@chakra-ui/react'
 
 import { YouTubeEvent, YouTubePlayer } from 'react-youtube'
 
+import { DateService } from '@/shared/services'
+
 import {
   Header,
   HeroSection,
@@ -17,9 +19,11 @@ import {
   LeadForm
 } from './vsl/components'
 
+
 export default function VSL() {
   const [isOpen, setIsOpen] = useState(false)
   const playerRef = useRef<YouTubePlayer>(null)
+  const startAt = DateService.getFormattedDate()
   const currentTime = playerRef?.current?.getCurrentTime()
 
   const onPlayerReady = useCallback((event: YouTubeEvent) => {
@@ -45,7 +49,12 @@ export default function VSL() {
         <ProgramInfo />
         <AskedQuestions onOpen={onOpen} />
       </Box>
-      <LeadForm isOpen={isOpen} onClose={() => setIsOpen(false)} videoWatchTime={currentTime} />
+      <LeadForm
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        videoWatchTime={currentTime}
+        startAt={startAt}
+      />
       <Footer />
     </>
   )

@@ -1,5 +1,7 @@
 import { useCallback, useState } from "react"
 
+import { DateService } from '@/shared/services'
+
 interface LeadInfo {
   ad?: string | null
   source?: string | null
@@ -7,30 +9,14 @@ interface LeadInfo {
   email: string
   phone: string
   avatar: string
+  startAt: string
   videoWatchTime: number
-}
-
-const getFormattedDate = () => {
-  const currentDate = new Date()
-  const options = {
-    timeZone: 'America/Belize',
-    hour12: false
-  }
-  const formattedDate = currentDate.toLocaleString('en-US', options)
-  const [dateString, timeString] = formattedDate.split(', ')
-  const [month, day, year] = dateString.split('/')
-  const formattedDateStr = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
-  const [hour, minute] = timeString.split(':')
-  const formattedTimeStr = `${hour}:${minute}`
-  const formattedDateTime = `${formattedDateStr} ${formattedTimeStr}`
-
-  return formattedDateTime
 }
 
 export const useLeadInfo = () => {
   const [isLoading, setIsLoading] = useState(false)
 
-  const onSaveLead = useCallback(async ({ ad, source, name, email, phone, avatar, videoWatchTime = 0 }: LeadInfo) => {
+  const onSaveLead = useCallback(async ({ ad, source, name, email, phone, avatar, startAt, videoWatchTime = 0 }: LeadInfo) => {
     setIsLoading(true)
 
     const data = {
@@ -38,8 +24,8 @@ export const useLeadInfo = () => {
       NAME: name,
       EMAIL: email,
       PHONE: phone,
-      START: getFormattedDate(),
-      SUBMIT: getFormattedDate(),
+      START: startAt,
+      SUBMIT: DateService.getFormattedDate(),
       VSL_TIME: videoWatchTime,
       SOURCE: source,
       AD: ad,

@@ -173,10 +173,11 @@ const ContactFormValidation = Yup.object({
 interface LeadFormProps {
   isOpen: boolean;
   videoWatchTime: number;
+  startAt: string;
   onClose: () => void;
 }
 
-export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, onClose }) => {
+export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, onClose }) => {
   const [step, setStep] = useState(0)
   const [questionIndex, setQuestionIndex] = useState(0)
   const [answerIndex, setAnswerIndex] = useState(-1)
@@ -294,6 +295,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, onClose })
       onSaveLead({
         ad,
         source,
+        startAt,
         videoWatchTime,
         ...leadFormValues,
         ...contactFormValues
