@@ -1,5 +1,7 @@
 import { useCallback, useState } from "react"
 
+import { DateService } from "@/shared/services"
+
 interface LeadQuestions {
   pageId: string;
   english: string;
@@ -20,6 +22,7 @@ export const useLeadQuestions = () => {
     setIsLoading(true)
 
     const data = {
+      END:  DateService.getFormattedDate(),
       PAGE_ID: questions.pageId,
       JOB: questions.job,
       GOAL: questions.goal,
