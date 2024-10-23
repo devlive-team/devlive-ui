@@ -186,7 +186,8 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
   const currentUrl = typeof window !== 'undefined' ? window?.location?.search : ''
   const queryParams = new URLSearchParams(currentUrl);
   const ad = queryParams.get('ad')
-  const source = queryParams.get('source')
+  const source = queryParams.get('s')
+  const username = queryParams.get('u')
 
   const { onSaveLead } = useLeadInfo()
   const { isLoading, onSaveQuestions } = useLeadQuestions()
@@ -296,6 +297,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
         ad,
         source,
         startAt,
+        username,
         videoWatchTime,
         ...leadFormValues,
         ...contactFormValues

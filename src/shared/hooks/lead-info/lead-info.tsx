@@ -5,6 +5,7 @@ import { DateService } from '@/shared/services'
 interface LeadInfo {
   ad?: string | null
   source?: string | null
+  username?: string | null
   name: string
   email: string
   phone: string
@@ -16,7 +17,7 @@ interface LeadInfo {
 export const useLeadInfo = () => {
   const [isLoading, setIsLoading] = useState(false)
 
-  const onSaveLead = useCallback(async ({ ad, source, name, email, phone, avatar, startAt, videoWatchTime = 0 }: LeadInfo) => {
+  const onSaveLead = useCallback(async ({ ad, source, username, name, email, phone, avatar, startAt, videoWatchTime = 0 }: LeadInfo) => {
     setIsLoading(true)
 
     const data = {
@@ -29,6 +30,7 @@ export const useLeadInfo = () => {
       VSL_TIME: videoWatchTime,
       SOURCE: source,
       AD: ad,
+      USERNAME: username
     }
     
     try {
