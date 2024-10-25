@@ -207,7 +207,6 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
   const answer = questionForm[key]
   const isValidApplication = (
     questionForm.english !== 'none' && questionForm.english !== 'basic' &&
-    questionForm.urgency !== 'later' && questionForm.urgency !== 'unknown' &&
     questionForm.budget !== '-500'
   )
 
