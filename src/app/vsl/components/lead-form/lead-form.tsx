@@ -152,8 +152,9 @@ const questions: Question[] = [
     key: 'budget',
     question: '¿Cuál es tu nivel de disposición para invertir en nuestro programa de alto valor en desarrollo de software?',
     answers: [
-      { option: 'COMPLICADA', description: 'menos de $500 USD.', value: '-500' },
-      { option: 'CAUTELOSA', description: 'entre $500 y $1,000 USD.', value: '500-1000' },
+      { option: 'COMPLICADA', description: 'menos de $500 USD.', value: '-100' },
+      { option: 'CAUTELOSA', description: 'entre $100 y $300 USD.', value: '100-300' },
+      { option: 'ACCESIBLE', description: 'entre $500 y $1,000 USD.', value: '500-1000' },
       { option: 'SERIA', description: 'entre $1,000 y $3,000 USD.', value: '1000-3000' },
       { option: 'DECIDIDA', description: 'más de $3,000 USD.', value: '+3000' },
     ]
@@ -205,11 +206,8 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
 
   const { key, question, answers } = questions[questionIndex]
   const answer = questionForm[key]
-  const isValidApplication = (
-    questionForm.english !== 'none' && questionForm.english !== 'basic' &&
-    questionForm.budget !== '-500'
-  )
-
+  const isValidApplication = questionForm.budget !== '-100'
+  
   const isLeadFormStep = step === 0
   const isContactFormStep = step === 1
   const isQuestionaryStep = step === 2
