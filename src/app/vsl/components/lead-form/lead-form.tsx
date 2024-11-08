@@ -152,7 +152,7 @@ const questions: Question[] = [
     key: 'budget',
     question: '¿Cuál es tu nivel de disposición para invertir en nuestro programa de alto valor en desarrollo de software?',
     answers: [
-      { option: 'COMPLICADA', description: 'menos de $500 USD.', value: '-100' },
+      { option: 'COMPLICADA', description: 'menos de $100 USD.', value: '-100' },
       { option: 'CAUTELOSA', description: 'entre $100 y $300 USD.', value: '100-300' },
       { option: 'ACCESIBLE', description: 'entre $500 y $1,000 USD.', value: '500-1000' },
       { option: 'SERIA', description: 'entre $1,000 y $3,000 USD.', value: '1000-3000' },
