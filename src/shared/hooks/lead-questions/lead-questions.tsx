@@ -18,11 +18,12 @@ interface LeadQuestions {
 export const useLeadQuestions = () => {
   const [isLoading, setIsLoading] = useState(false)
   
-  const onSaveQuestions = useCallback(async (questions: LeadQuestions) => {
+  const onSaveQuestions = useCallback(async (fbclid: string | null, questions: LeadQuestions) => {
     setIsLoading(true)
 
     const data = {
       END:  DateService.getFormattedDate(),
+      FBC: fbclid,
       PAGE_ID: questions.pageId,
       JOB: questions.job,
       GOAL: questions.goal,

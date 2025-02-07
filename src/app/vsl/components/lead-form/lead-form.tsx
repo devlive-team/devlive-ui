@@ -189,6 +189,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
   const ad = queryParams.get('ad')
   const source = queryParams.get('s')
   const username = queryParams.get('u')
+  const fbclid = queryParams.get('fbclid')
 
   const { onSaveLead } = useLeadInfo()
   const { isLoading, onSaveQuestions } = useLeadQuestions()
@@ -265,7 +266,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
     } else {
       const nameParam = leadFormValues.name.split(' ').reduce((total, value) => total + '%20' + value)
       
-      await onSaveQuestions({
+      await onSaveQuestions(fbclid, {
         ...questionForm,
         pageId: notionLeadPage,
         isValidApplication
@@ -290,7 +291,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
 
   useEffect(() => {
     if (step === 2) {
-      onSaveLead({
+      onSaveLead(fbclid, {
         ad,
         source,
         startAt,
