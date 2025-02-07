@@ -9,6 +9,7 @@ interface LeadInfo {
   name: string
   email: string
   phone: string
+  country: string
   avatar: string
   startAt: string
   videoWatchTime: number
@@ -17,7 +18,7 @@ interface LeadInfo {
 export const useLeadInfo = () => {
   const [isLoading, setIsLoading] = useState(false)
 
-  const onSaveLead = useCallback(async (fbclid: string | null, { ad, source, username, name, email, phone, avatar, startAt, videoWatchTime = 0 }: LeadInfo) => {
+  const onSaveLead = useCallback(async (fbclid: string | null, { ad, source, username, name, email, phone, country, avatar, startAt, videoWatchTime = 0 }: LeadInfo) => {
     setIsLoading(true)
 
     const data = {
@@ -25,6 +26,7 @@ export const useLeadInfo = () => {
       NAME: name,
       EMAIL: email,
       PHONE: phone,
+      COUNTRY: country,
       START: startAt,
       SUBMIT: DateService.getFormattedDate(),
       VSL_TIME: videoWatchTime,

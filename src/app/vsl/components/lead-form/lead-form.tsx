@@ -52,6 +52,8 @@ interface LeadInfoState {
   avatar: string
 }
 
+const DEFAULT_COUNTRY = 'cr'
+
 const professions = [
   { name: 'SOPORTE TÉCNICO', value: 'd4eb631e49134de59481d2eb8ff4f0e0' },
   { name: 'CALL CENTER', value: '93f22493ca5c486c86c82a965a38bd8e' },
@@ -169,6 +171,7 @@ const LeadFormValidation = Yup.object({
 
 const ContactFormValidation = Yup.object({
   phone: Yup.string().min(8, 'Requerido'),
+  country: Yup.string().length(2, 'Requerido'),
 })
 
 interface LeadFormProps {
@@ -243,11 +246,12 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
     errors: contactFormErrors,
     submitCount: contactFormSubmitCount,
     handleSubmit: handleContactFormSubmit
-  } = useFormik<{ phone: string }>({
+  } = useFormik<{ phone: string, country: string }>({
     onSubmit: onNextStep,
     validationSchema: ContactFormValidation,
     initialValues: {
       phone: '',
+      country: DEFAULT_COUNTRY
     }
   })
 
@@ -385,8 +389,11 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
                   <Box mb={2}>
                     <Text color={'#C7C7C7'}>Número de WhatsApp</Text>
                     <PhoneInput
-                      defaultCountry={'cr'}
-                      onChange={(value) => setFieldValue('phone', value)}
+                      defaultCountry={DEFAULT_COUNTRY}
+                      onChange={(value, { country }) => {
+                        setFieldValue('phone', value)
+                        setFieldValue('country', country.iso2)
+                      }}
                       style={{ borderRadius: 8, border: contactFormErrors.phone && contactFormTouched.phone ? '2px solid red' : undefined }}
                     />
                     <Text color='red'>{contactFormErrors.phone && contactFormTouched.phone ? contactFormErrors.phone : ''}</Text>
