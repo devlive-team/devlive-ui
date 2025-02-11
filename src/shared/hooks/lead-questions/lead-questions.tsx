@@ -15,13 +15,26 @@ interface LeadQuestions {
   isValidApplication: boolean;
 }
 
+interface LeadInfo {
+  ad?: string | null
+  name: string
+  email: string
+  phone: string
+  country: string
+}
+
 export const useLeadQuestions = () => {
   const [isLoading, setIsLoading] = useState(false)
   
-  const onSaveQuestions = useCallback(async (fbclid: string | null, questions: LeadQuestions) => {
+  const onSaveQuestions = useCallback(async (fbclid: string | null, questions: LeadQuestions, lead: LeadInfo) => {
     setIsLoading(true)
 
     const data = {
+      AD: lead.ad,
+      NAME: lead.name,
+      EMAIL: lead.email,
+      PHONE: lead.phone,
+      COUNTRY: lead.country,
       END:  DateService.getFormattedDate(),
       FBC: fbclid,
       PAGE_ID: questions.pageId,

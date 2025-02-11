@@ -274,6 +274,10 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
         ...questionForm,
         pageId: notionLeadPage,
         isValidApplication
+      }, {
+        ad,
+        ...leadFormValues,
+        ...contactFormValues,
       })
 
       if (isValidApplication) {
@@ -283,7 +287,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
       }
     }
     
-  }, [step, questionIndex, answerIndex, leadFormValues, questionForm, contactFormValues, isValidApplication, setStep, setQuestionIndex, setAnswerIndex, handleSubmit])
+  }, [ad, step, questionIndex, answerIndex, leadFormValues, questionForm, contactFormValues, isValidApplication, setStep, setQuestionIndex, setAnswerIndex, handleSubmit])
 
   const onSelectAnswer = useCallback((i: number) => () => {
     setQuestionForm({
