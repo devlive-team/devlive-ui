@@ -60,7 +60,6 @@ export const HeroSection: FC<HeroSectionProps> = ({ onOpen, onPlayerReady }) => 
                   },
                 }}
                 onReady={onPlayerReady}
-                onPlay={() => setEnableButton(true)}
               />
             : <Image alt='video-thumbnail' src={VideoThumbnail} onClick={onVisible} />
           }
@@ -73,13 +72,9 @@ export const HeroSection: FC<HeroSectionProps> = ({ onOpen, onPlayerReady }) => 
         border='1px solid #8ff0f6'
         boxShadow='0px 0px 10px 0px #479ea5;'
         onClick={onOpen}
-        disabled={!enableButton}
       >
         ¡QUIERO APLICAR AL PROGRAMA!
       </Button>
-      <Text color='#c7c7c7' textAlign={'center'} mb={8}>
-        (reproducir video para habilitar)
-      </Text>
     </Box>
   )
 }
