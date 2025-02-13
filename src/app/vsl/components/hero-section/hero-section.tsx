@@ -15,7 +15,6 @@ interface HeroSectionProps {
 
 export const HeroSection: FC<HeroSectionProps> = ({ onOpen, onPlayerReady }) => {
   const [isVideoVisible, setIsVideoVisible] = useState(false)
-  const [enableButton, setEnableButton] = useState(false)
 
   const onVisible = useCallback(() => {
     setIsVideoVisible(true)
