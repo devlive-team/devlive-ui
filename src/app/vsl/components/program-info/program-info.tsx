@@ -11,28 +11,28 @@ import Chat from '../../../images/program/chat.png'
 
 const features = [
   {
+    icon: Chat.src,
+    title: 'Chat privado con Anthony Soto',
+    description: 'Comunicación personal y prioritaria por Whatsapp y Skool.'
+  },
+  {
     icon: VideoCall.src,
-    title: '5 llamadas semanales con Anthony Soto',
+    title: '3 llamadas de soporte semanales',
     description: 'Atención de dudas y retroalimentación entre un grupo de 5-10 estudiantes.'
   },
   {
     icon: RoadMap.src,
-    title: 'Programa paso a paso hacia full-stack developer',
-    description: 'Acceso a +150 episodios sobre programación con ejercicios explicados.'
-  },
-  {
-    icon: Chat.src,
-    title: 'Chat privado de WhatsApp con Anthony Soto',
-    description: 'Comunicación personal y prioritaria por Whatsapp y Discord.'
+    title: 'Programa diseñado paso a paso',
+    description: 'Acceso a +150 clases pre-gabadas con ejercicios explicados.'
   },
   {
     icon: CodeReview.src,
-    title: 'Revisiones de código a tareas del programa',
-    description: 'Revisión exclusiva y personalizada de tareas a través de GitHub.'
+    title: 'Revisiones de ejercicios',
+    description: 'Retroalimentación exclusiva y personalizada de tareas.'
   },
   {
     icon: Interview.src,
-    title: 'Entrevistas para evaluar progresos y habilidades',
+    title: 'Entrevistas para evaluar progreso',
     description: 'Hay entre 3-5 entrevistas a lo largo del año de entrenamiento.'
   },
   {
@@ -42,7 +42,7 @@ const features = [
   },
   {
     icon: Star.src,
-    title: 'Posicionamiento en proyecto o puesto laboral',
+    title: 'Posicionamiento de puesto laboral',
     description: 'Garantía para conseguir como mínimo un proyecto que recupere parte de la inversión.'
   },
   {

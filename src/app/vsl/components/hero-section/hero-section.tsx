@@ -38,8 +38,8 @@ export const HeroSection: FC<HeroSectionProps> = ({ onOpen, onPlayerReady }) => 
       </Text>
 
       <Box textAlign={'center'} mb={4}>
-        <Heading as='h2' size='lg' color='white'>DESCUBRE CÓMO SER UN SOFTWARE-DEV GANANDO</Heading>
-        <Heading as='h2' size='lg' color='white'><Box as='span' boxShadow='inset 0 -.5em #03989e'>$2,000 - $5,000 USD/MES</Box> CON MI CONSULTORÍA 1 A 1</Heading>
+        <Heading as='h2' size='lg' color='white'>DESCUBRE UNA NUEVA PROFESIÓN TECNOLÓGICA</Heading>
+        <Heading as='h2' size='lg' color='white'>GANANDO <Box as='span' boxShadow='inset 0 -.5em #03989e'>$2,000 - $5,000 USD/MES</Box> REMOTAMENTE</Heading>
       </Box>
 
       <Text color='#c7c7c7' textAlign={'center'} mb={8}>
@@ -47,7 +47,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ onOpen, onPlayerReady }) => 
       </Text>
       <Box padding={3} mb={8} bg='whiteAlpha.200' borderRadius={8} border='1px solid #444d55' maxWidth={978}>
         <Box as='section' maxHeight={550} maxWidth={978} overflow="hidden">
-          {isVideoVisible 
+          {/* {isVideoVisible 
             ? <YouTube
                 videoId={'oMfrL3oQnjk'}
                 opts={{
@@ -59,9 +59,8 @@ export const HeroSection: FC<HeroSectionProps> = ({ onOpen, onPlayerReady }) => 
                   },
                 }}
                 onReady={onPlayerReady}
-              />
-            : <Image alt='video-thumbnail' src={VideoThumbnail} onClick={onVisible} />
-          }
+              /> : */}
+            <Image alt='video-thumbnail' src={VideoThumbnail} onClick={onOpen} />
         </Box>
       </Box>
       <Button

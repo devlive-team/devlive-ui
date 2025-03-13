@@ -11,7 +11,7 @@ const askedQuestions = [
   },
   {
     title: '¿Cuánto es el costo del programa?',
-    description: 'El costo del programa en Devlive varía entre $1000 y $3000 USD, dependiendo del nivel de personalización que cada estudiante desee. Este precio también incluye un año completo de soporte, lo que asegura que los estudiantes puedan continuar recibiendo orientación y asistencia a lo largo de su proceso de aprendizaje. Además, el costo puede ajustarse con el tiempo, por lo que recomendamos consultar el precio exacto con nuestro equipo. Normalmente, esta información se confirma durante la llamada de estrategia, donde evaluamos las necesidades y objetivos del estudiante para ofrecer el mejor valor posible.'
+    description: 'El costo del programa en DEVLIVE varía entre $1000 y $3000 USD, dependiendo del nivel de personalización que cada estudiante desee. Este precio también incluye un año completo de soporte, lo que asegura que los estudiantes puedan continuar recibiendo orientación y asistencia a lo largo de su proceso de aprendizaje. Además, el costo puede ajustarse con el tiempo, por lo que recomendamos consultar el precio exacto con nuestro equipo. Normalmente, esta información se confirma durante la llamada de estrategia, donde evaluamos las necesidades y objetivos del estudiante para ofrecer el mejor valor posible.'
   },
   {
     title: '¿Cuánto tiempo necesito dedicarle?',
