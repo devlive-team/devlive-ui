@@ -311,7 +311,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
         setNotionLeadPage(id)
       })
     }
-  }, [ad, source, videoWatchTime, step, setNotionLeadPage])
+  }, [ad, source, startAt, username, videoWatchTime, step, leadFormValues, contactFormValues, setNotionLeadPage])
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>

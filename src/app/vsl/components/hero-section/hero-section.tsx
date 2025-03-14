@@ -1,8 +1,8 @@
-import { FC, useCallback, useState } from 'react'
+import { FC } from 'react'
 
 import Image from 'next/image'
 
-import YouTube, { YouTubeEvent } from 'react-youtube'
+import { YouTubeEvent } from 'react-youtube'
 
 import { Box, Button, Heading, Text } from "@chakra-ui/react"
 
@@ -14,12 +14,6 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: FC<HeroSectionProps> = ({ onOpen, onPlayerReady }) => {
-  const [isVideoVisible, setIsVideoVisible] = useState(false)
-
-  const onVisible = useCallback(() => {
-    setIsVideoVisible(true)
-  }, [])
-
   return (
     <Box
       backgroundPosition='top center'
