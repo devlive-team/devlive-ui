@@ -261,7 +261,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
     } else if (formId === 2) {
       handleContactFormSubmit();
     }
-  }, []);
+  }, [handleLeadFormSubmit, handleContactFormSubmit]);
 
   const onNextQuestion = useCallback(async () => {   
     if (questionIndex < questions.length - 1) {
@@ -287,7 +287,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
       }
     }
     
-  }, [ad, step, questionIndex, answerIndex, leadFormValues, questionForm, contactFormValues, isValidApplication, setStep, setQuestionIndex, setAnswerIndex, handleSubmit])
+  }, [ad, step, questionIndex, fbclid, answerIndex, leadFormValues, questionForm, contactFormValues, isValidApplication, notionLeadPage, setStep, setQuestionIndex, setAnswerIndex, handleSubmit])
 
   const onSelectAnswer = useCallback((i: number) => () => {
     setQuestionForm({
@@ -311,7 +311,7 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
         setNotionLeadPage(id)
       })
     }
-  }, [ad, source, startAt, username, videoWatchTime, step, leadFormValues, contactFormValues, setNotionLeadPage])
+  }, [ad, source, startAt, username, fbclid, videoWatchTime, step, leadFormValues, contactFormValues, setNotionLeadPage, onSaveLead])
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>

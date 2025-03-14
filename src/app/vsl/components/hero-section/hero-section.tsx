@@ -13,7 +13,7 @@ interface HeroSectionProps {
   onPlayerReady: (event: YouTubeEvent) => void
 }
 
-export const HeroSection: FC<HeroSectionProps> = ({ onOpen, onPlayerReady }) => {
+export const HeroSection: FC<HeroSectionProps> = ({ onOpen }) => {
   return (
     <Box
       backgroundPosition='top center'
