@@ -281,13 +281,13 @@ export const LeadForm: FC<LeadFormProps> = ({ isOpen, videoWatchTime, startAt, o
       })
 
       if (isValidApplication) {
-        window.location.href = `https://calendly.com/devlive-setting/fit-evaluation-vsl/?email=${leadFormValues.email}&name=${nameParam}`;
+        window.location.href = `https://calendly.com/d/5j6-xp3-fwg/devlaunch-strategy-meeting/?email=${leadFormValues.email}&name=${nameParam}&a1=${username || ''}&a8=${contactFormValues.phone}`;
       } else {
         onNextStep()
       }
     }
     
-  }, [ad, step, questionIndex, fbclid, answerIndex, leadFormValues, questionForm, contactFormValues, isValidApplication, notionLeadPage, setStep, setQuestionIndex, setAnswerIndex, handleSubmit])
+  }, [ad, username, step, questionIndex, fbclid, answerIndex, leadFormValues, questionForm, contactFormValues, isValidApplication, notionLeadPage, setStep, setQuestionIndex, setAnswerIndex, handleSubmit])
 
   const onSelectAnswer = useCallback((i: number) => () => {
     setQuestionForm({
